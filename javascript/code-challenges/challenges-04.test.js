@@ -23,6 +23,11 @@ function lower(str) {
 
 const updateAnimal = (arr, callback) => {
   // Solution code here...
+  let newArry = arr.map(element => {
+    return callback(element);
+  });
+  return newArry;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,6 +40,23 @@ For example: 'Cat' would come before 'apple'
 
 const sortNames = (arr) => {
   // Solution code here...
+  arr.sort((a, b) => {
+    if (a[0].toUpperCase() === a[0] && b[0].toUpperCase() === b[0])
+      if (a > b) {
+        return -1;
+      } else if (b > a) {
+        return +1;
+      }
+    if (a[0].toUpperCase() === a[0] || b[0].toUpperCase() === b[0]) {
+      if (a[0].toUpperCase() === a[0]) {
+        return -1;
+      } else {
+        return 1;
+      }
+    }
+  });
+  return arr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -47,6 +69,15 @@ HINT: Beware... JS default is "Lexical" ordering.
 
 const sortNumbers = (arr) => {
   // Solution code here...
+  arr.sort((b, a) => {
+    if (a > b) {
+       return -1;
+    } else if (b > a) {
+      return 1;
+    }
+  });
+  return arr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -59,6 +90,15 @@ HINT: Do it with a custom sort callback, not with using `.reverse()`. ;)
 
 const sortBackwards = (arr) => {
   // Solution code here...
+  arr.sort((a, b) => {
+    if (a > b) {
+      return -1;
+    } else if (b > a) {
+      return 1;
+    }
+  });
+  return arr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -73,6 +113,28 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 
 const alphabetize = (arr) => {
   // Solution code here...
+  arr.sort((a, b) => {
+    if (a[0].toUpperCase() === a[0] && b[0].toUpperCase() === b[0]) {
+      if (a > b) {
+        return 1;
+      } else if (a < b) {
+        return -1;
+      }
+    } else if (a[0].toUpperCase() === a[0] || b[0].toUpperCase() === b[0]) {
+      if (a[0].toUpperCase() === a[0]) {
+        return -1;
+      } else if (b[0].toUpperCase() === b[0]) {
+        return 1;
+      }
+    } else {
+      if (a > b) {
+        return 1;
+      } else if (a < b) {
+        return -1;
+      }
+    }
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -90,6 +152,16 @@ Here is an example of the input:
 
 const sortByPrice = (arr) => {
   // Solution code here...
+  arr.sort((a, b) => {
+    if (a.price > b.price) {
+      return 1;
+    } else if (a.price < b.price) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
